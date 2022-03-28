@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Header } from "./components/Header";
 import { Wishlist } from "./components/Wishlist";
 import { Add } from "./components/Add";
@@ -10,15 +10,11 @@ function App() {
     <Router>
       <Header />
 
-      <Switch>
-        <Route exact path="/">
-          <Wishlist />
-        </Route>
+      <Routes>
+        <Route exact path="/" element={<Wishlist />} />
 
-        <Route path="/add">
-          <Add />
-        </Route>
-      </Switch>
+        <Route path="/add" element={<Add />} />
+      </Routes>
     </Router>
   );
 }
