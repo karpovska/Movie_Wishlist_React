@@ -1,9 +1,27 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
-    <div>
-      <h1>Header Page</h1>
-    </div>
+    <header>
+      <div className="container">
+        <div className="inner-content">
+          <div className="brand">
+            <Link to="/">Wishlist</Link>
+          </div>
+
+          <ul className="nav-links">
+            <li>
+              <Link to="/">Wish List</Link>
+            </li>
+            <li>
+              <Link to="/add" className="btn">
+                + Add
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
   );
 };
