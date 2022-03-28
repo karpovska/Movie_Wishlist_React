@@ -1,10 +1,26 @@
-import "./styles.css";
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Header } from "./components/Header";
+import { Wishlist } from "./components/Wishlist";
+import { Add } from "./components/Add";
+import "./App.css";
 
-export default function App() {
+function App() {
   return (
-    <div className="App">
-      <h1>Hello World!</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
+    <Router>
+      <Header />
+
+      <Switch>
+        <Route exact path="/">
+          <Wishlist />
+        </Route>
+
+        <Route path="/add">
+          <Add />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
+
+export default App;
