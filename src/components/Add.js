@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ResultCard } from "./ResultCard";
 
 export const Add = () => {
   const [query, setQuery] = useState("");
@@ -40,7 +41,9 @@ export const Add = () => {
 
           {results !== undefined && (
             <ul className="results">
-              <li>{results.Title}</li>
+              <li key={results.imdbID}>
+                <ResultCard movie={results} />
+              </li>
             </ul>
           )}
         </div>
