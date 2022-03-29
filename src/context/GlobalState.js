@@ -3,7 +3,9 @@ import AppReducer from "./AppReducer";
 
 // create initial state
 const initialState = {
-  wishlist: []
+  wishlist: localStorage.getItem("wishlist")
+    ? JSON.parse(localStorage.getItem("wishlist"))
+    : []
 };
 
 // create context
@@ -12,6 +14,10 @@ export const GlobalContext = createContext(initialState);
 // create provider components
 export const GlobalProvider = (props) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
+
+  useEffect(() => {
+    localStorage.setItem("wishlist", JSON.stringify(state.wishlist));
+  }, [state]);
 
   // create actions
   const addMovieToWishlist = (movie) => {
