@@ -1,4 +1,5 @@
 import React from "react";
+import { MovieControls } from "./MovieControls";
 
 export const MovieCard = ({ movie }) => {
   return (
@@ -10,6 +11,8 @@ export const MovieCard = ({ movie }) => {
       ) : (
         <div className="filler-poster"></div>
       )}
+
+      <MovieControls movie={movie} />
     </div>
   );
 };

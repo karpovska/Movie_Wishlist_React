@@ -5,6 +5,13 @@ export default (state, action) => {
         ...state,
         wishlist: [action.payload, ...state.wishlist]
       };
+    case "REMOVE_MOVIE_FROM_WISHLIST":
+      return {
+        ...state,
+        wishlist: state.wishlist.filter(
+          (movie) => movie.imdbID !== action.payload
+        )
+      };
     default:
       return state;
   }
