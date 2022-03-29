@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 export const Add = () => {
   const [query, setQuery] = useState("");
+  const [results, setResults] = useState({});
   const onChange = (event) => {
     event.preventDefault();
 
@@ -12,11 +13,18 @@ export const Add = () => {
     )
       .then((result) => result.json())
       .then((data) => {
-        console.log(data);
+        if (!data.errors) {
+          console.log(data);
+          setResults(data);
+        } else {
+          setResults({});
+        }
       });
   };
   //http://www.omdbapi.com/?apikey=[yourkey]&
   //http://www.omdbapi.com/?t=Iron+man
+  //const { Title } = results;
+
   return (
     <div className="add-page">
       <div className="container">
@@ -29,6 +37,12 @@ export const Add = () => {
               onChange={onChange}
             />
           </div>
+
+          {results !== undefined && (
+            <ul className="results">
+              <li>{results.Title}</li>
+            </ul>
+          )}
         </div>
       </div>
     </div>
