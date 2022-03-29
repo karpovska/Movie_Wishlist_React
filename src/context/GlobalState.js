@@ -19,7 +19,9 @@ export const GlobalProvider = (props) => {
   };
 
   return (
-    <GlobalContext.Provider value={{ wishlist: state.wishlist }}>
+    <GlobalContext.Provider
+      value={{ wishlist: state.wishlist, addMovieToWishlist }}
+    >
       {props.children}
     </GlobalContext.Provider>
   );
