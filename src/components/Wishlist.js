@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+import { GlobalContext } from "../context/GlobalState";
 
 export const Wishlist = () => {
+  const { wishlist } = useContext(GlobalContext);
   return (
-    <div>
-      <h1>Wishlist Page</h1>
+    <div className="movie-page">
+      <div className="container">
+        <div className="header">
+          <h1 className="heading">My Wishlist</h1>
+        </div>
+      </div>
     </div>
   );
 };
