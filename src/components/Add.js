@@ -24,7 +24,6 @@ export const Add = () => {
   };
   //http://www.omdbapi.com/?apikey=[yourkey]&
   //http://www.omdbapi.com/?t=Iron+man
-  //const { Title } = results;
 
   return (
     <div className="add-page">
@@ -39,7 +38,7 @@ export const Add = () => {
             />
           </div>
 
-          {results !== undefined && (
+          {results["imdbID"] !== undefined && (
             <ul className="results">
               <li key={results.imdbID}>
                 <ResultCard movie={results} />
