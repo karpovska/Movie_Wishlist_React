@@ -19,7 +19,7 @@ export const Wishlist = () => {
           </div>
         ) : (
           <h2 className="no-movies">
-            There are no movies in your wishlist. You may add some
+            No movies in your wishlist. You may add some
           </h2>
         )}
       </div>
